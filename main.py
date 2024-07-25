@@ -7,7 +7,6 @@ roblox_token = "_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-t
 rob_client = roblox.Client(roblox_token)
 
 async def promote_one(username, new_rank):
-    print(new_rank)
     group = rob_client.get_base_group(3173379)
     user = await group.get_member_by_username(username)
     for role in await user.get_group_roles():
@@ -43,7 +42,6 @@ async def on_message(message):
     if message.author == client.user:
         return
     if message.channel.id == 1265830048179552307:
-        print("im triggered")
         embeds = message.embeds
         embed = embeds[0]
         await promote_one(str(embed.fields[1].value), str(embed.fields[2].value))
