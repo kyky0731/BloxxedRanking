@@ -14,6 +14,8 @@ async def promote_one(username, new_rank):
             give = role.rank
             break
     try:
+        if give == 1:
+            await group.set_rank(user, 6)
         if give >= 3 and give < 11:
             if new_rank.lower() == "housekeeping":
                 await group.set_rank(user, 7)
@@ -28,11 +30,6 @@ async def promote_one(username, new_rank):
                 await group.set_rank(user, 11)
     except:
         pass
-    
-        
-        
-
-
 @client.event
 async def on_ready():
     print("Ready")
